@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "YorkClassCal",
+  "description": "Generate ics (calendar event info) file for YorkU's courses and your own personal timetable",
+  "version": "1.0.0",
+  "icons": { "128": "assets/icon128.png" },
+  "permissions": ["activeTab", "webRequest", "https://w2prod.sis.yorku.ca/*", "https://schedulebuilder.yorku.ca/*", "https://www.ratemyprofessors.com/*"],
+  "optional_permissions": ["webNavigation", "tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "event_page": "event.html",
+  "content_scripts": [
+    {
+      "matches": ["https://w2prod.sis.yorku.ca/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
